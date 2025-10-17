@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy 1st MONTHS❤️</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Raleway:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1020;
+      --card: #fff6f8;
+      --accent: #ff6b92;
+      --muted: #f6d9e3;
+      --glass: rgba(255, 255, 255, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: Raleway, system-ui, Segoe UI, Arial;
+      background: radial-gradient(circle at 10% 10%, #1b1430 0%, var(--bg) 40%);
+      color: var(--card);
+      overflow-x: hidden;
+    }
+
+    header,
+    footer {
+      position: fixed;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      backdrop-filter: blur(6px);
+      z-index: 30;
+      flex-wrap: wrap;
+      text-align: center
+    }
+
+    header {
+      top: 0;
+      height: 72px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    }
+
+    footer {
+      bottom: 0;
+      height: 72px;
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 5px auto
+    }
+
+    .brand h1 {
+      font-family: Playfair Display, serif;
+      margin: 0;
+      color: var(--card);
+      letter-spacing: 1px;
+      font-size: clamp(1.2rem, 2vw, 1.6rem)
+    }
+
+    .names {
+      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      opacity: .9
+    }
+
+    main {
+      padding-top: 96px;
+      padding-bottom: 120px;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+      width: 90vw
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 40px 5vw;
+      margin: 32px 0;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(6, 6, 10, 0.6);
+      overflow: hidden;
+      position: relative;
+      transform: translateY(80px);
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease
+    }
+
+    .section.visible {
+      transform: translateY(0);
+      opacity: 1;
+      animation: slideIn 1s ease forwards
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(80px) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .section .photo {
+      width: 100%;
+      border-radius: 14px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .section.visible .photo img {
+      animation: zoomIn 2s ease forwards;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    @keyframes zoomIn {
+      0% {
+        transform: scale(1.05)
+      }
+
+      100% {
+        transform: scale(1)
+      }
+    }
+
+    .note {
+      padding: 18px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      backdrop-filter: blur(4px);
+      text-align: center;
+    }
+
+    .note h2 {
+      margin: 0 0 8px 0;
+      font-family: Playfair Display, serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem)
+    }
+
+    .note p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: clamp(0.9rem, 2vw, 1rem)
+    }
+
+    /* Floating hearts */
+    .hearts {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 72px;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 18px;
+      opacity: .12;
+      transform: translateY(0);
+      animation: rise 10s linear infinite
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: .1
+      }
+
+      50% {
+        opacity: .25
+      }
+
+      100% {
+        transform: translateY(-140vh) scale(.8);
+        opacity: 0
+      }
+    }
+
+    /* Click hearts */
+    .click-heart {
+      position: absolute;
+      color: var(--accent);
+      font-size: 24px;
+      opacity: 1;
+      animation: floatHeart 1.5s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateY(-40px) scale(1.2);
+        opacity: .8;
+      }
+
+      100% {
+        transform: translateY(-80px) scale(0.8);
+        opacity: 0;
+      }
+    }
+
+    .music-btn {
+      display: none; /* hide the old play button since music is auto */
+    }
+
+    .small {
+      font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+      opacity: .85
+    }
+
+    @media(min-width:700px) {
+      .section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section:nth-child(even) {
+        direction: rtl;
+        text-align: left
+      }
+
+      .section:nth-child(even) .note {
+        direction: ltr
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <div
+        style="width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9cc0);display:flex;align-items:center;justify-content:center;color:white;font-weight:700">
+        ❤</div>
+      <div>
+        <h1>For Udita</h1>
+        <div class="names small">Aloo • Buttercep • Puchku </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="hearts" id="hearts"></div>
+
+  <main id="main">
+    <!-- Your sections here -->
+    <!-- Section 1 -->
+    <section class="section reveal" data-note="Hey Aloo — It wasn’t the first time I noticed you, it was some random moment, and suddenly, my eyes just got lost in you. I don’t even know why, but everything around faded, and it was just you. Since then, you’ve been my calm, my smile, and the best part of every day.🥰💞">
+      <div class="photo">
+        <img src="./images/photo1.jpg" alt="photo-1">
+      </div>
+      <div class="note">
+        <h2>To my Aloo</h2>
+        <p></p>
+      </div>
+    </section>
+
+        <section class="section reveal"
+      data-note="Even when you’re talking about nothing in particular, I hang onto every word. Every laugh, every pause, every tiny expression — it’s like the world disappears, and all I can see, all I want to see, is you. Even the smallest, most ordinary moments feel magical when they’re with you.❤️">
+      <div class="photo">
+        <img src="./images/photo2.jpg" alt="photo-2">
+      </div>
+      <div class="note">
+        <h2>Buttercup</h2>
+        <p></p>
+      </div>
+    </section>
+
+    <section class="section reveal"
+      data-note="And even when my mind spins out of control and I overthink every little thing, you’re always there. You don’t judge, you don’t rush me — you just listen, hold me close, and somehow make all the chaos in my head fade away. With you by my side, even my worst worries feel lighter, and I remember that no matter how tangled life gets, I’m never alone.🤗💖">
+      <div class="photo">
+        <img src="./images/photo3.jpg" alt="photo-3">
+      </div>
+      <div class="note">
+        <h2>Puchku</h2>
+        <p></p>
+      </div>
+    </section>
+
+    <section class="section reveal" data-note="Thank you, YOU, for being my safe place, my home, and my favorite part of every day. For the quiet moments, the silly laughs, the latenight talks that never seem to end, and all the little memories we make along the way. Here’s to us to countless more kisses, endless laughter, and a love that only grows stronger with every passing day. 💌🌸">
+      <div class="photo">
+        <img src="./images/photo4.jpg" alt="photo-4">
+      </div>
+      <div class="note">
+        <h2>Lastly.....</h2>
+        <p></p>
+      </div>
+    </section>
+
+    <section class="section reveal"
+      data-note="I promise to keep choosing you, today and every day after.💕💫">
+      <div class="photo">
+        <img src="./images/photo5.jpg" alt="photo-5">
+      </div>
+      <div class="note">
+        <h2>UDITA</h2>
+        <p></p>
+      </div>
+    </section>
+
+    <section class="section reveal" data-note="Everything we are, everything we’ve shared, and everything we will become — it’s all for us. For the laughter, the tears, the silly fights, the late-night talks, and the quiet moments that mean everything. Here’s to our love, our memories, and the countless beautiful days ahead. Forever, just us.🤗❤️✨">
+      <div class="photo">
+        <img src="./images/photo6.jpg" alt="photo-6">
+      </div>
+      <div class="note">
+        <h2>For Us</h2>
+        <p></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="small">I know I have shortage of pics and for that SORRRYYYY 😢</div>
+    <div class="small">I LOVE YOU INFINITY ♾️ <code></code></div>
+  </footer>
+
+  <!-- Background Music -->
+  <!-- Background Music -->
+<audio id="bgAudio" loop>
+  <source src="WhatsApp Audio 2025-10-17 at 22.26.01_61005b2e.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+const audio = document.getElementById('bgAudio');
+
+// Play music on first click anywhere
+document.body.addEventListener('click', () => {
+    audio.play().catch(err => console.log("Autoplay blocked: ", err));
+}, { once: true });
+</script>
+
+
+
+  <script>
+    document.querySelectorAll('.section').forEach(sec => {
+      const note = sec.getAttribute('data-note') || '';
+      sec.querySelector('.note p').textContent = note;
+    });
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, {
+      threshold: 0.2
+    });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    const heartsContainer = document.getElementById('hearts');
+    const createHeart = () => {
+      const h = document.createElement('div');
+      h.className = 'heart';
+      const size = Math.random() * 18 + 12;
+      h.style.left = Math.random() * 100 + '%';
+      h.style.fontSize = size + 'px';
+      h.style.opacity = (Math.random() * 0.25 + 0.05).toFixed(2);
+      h.textContent = '❤';
+      h.style.animationDuration = (8 + Math.random() * 8) + 's';
+      heartsContainer.appendChild(h);
+      setTimeout(() => h.remove(), 18000);
+    }
+    setInterval(createHeart, 900);
+
+    document.querySelectorAll('.photo img').forEach(img => {
+      img.addEventListener('click', e => {
+        const rect = img.getBoundingClientRect();
+        const heart = document.createElement('div');
+        heart.className = 'click-heart';
+        heart.textContent = '❤';
+        heart.style.left = (e.clientX - rect.left) + 'px';
+        heart.style.top = (e.clientY - rect.top) + 'px';
+        img.parentElement.appendChild(heart);
+        setTimeout(() => heart.remove(), 1500);
+      });
+    });
+
+    document.querySelector('.brand h1').addEventListener('click', () => {
+      const orig = document.querySelector('.brand h1').textContent;
+      document.querySelector('.brand h1').textContent = 'My Heart ♥';
+      setTimeout(() => document.querySelector('.brand h1').textContent = orig, 1200);
+    });
+  </script>
+</body>
+
+</html>
